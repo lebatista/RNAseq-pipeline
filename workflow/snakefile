@@ -1,0 +1,29 @@
+rule all:
+    input:
+        "results/deseq2/deseq_results.csv",
+        "results/figures/pca.png",
+        "results/figures/volcano.png"
+
+rule deseq2:
+    input:
+        "data/processed/count_matrix.csv"
+    output:
+        "results/deseq2/deseq_results.csv"
+    script:
+        "../scripts/run_deseq2.R"
+
+rule pca:
+    input:
+        "results/deseq2/deseq_results.csv"
+    output:
+        "results/figures/pca.png"
+    script:
+        "../scripts/qc_report.py"
+
+rule volcano:
+    input:
+        "results/deseq2/deseq_results.csv"
+    output:
+        "results/figures/volcano.png"
+    script:
+        "../scripts/qc_report.py"
