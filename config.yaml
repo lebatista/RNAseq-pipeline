@@ -1,0 +1,14 @@
+samples:
+  - sample1
+  - sample2
+  - sample3
+  - sample4
+
+conditions:
+  sample1: control
+  sample2: control
+  sample3: treated
+  sample4: treated
+
+counts_file: data/processed/count_matrix.csv
+results_dir: results/
